@@ -1,0 +1,74 @@
+# use the official gcc image, based on debian
+# can use versions as well, like gcc:5.2
+# see https://hub.docker.com/_/gcc/
+
+image: gcc
+
+build:
+  stage: build
+  # instead of calling g++ directly you can also use some build toolkit like make
+  # install the necessary build tools when needed
+  before_script:
+      - apt update && apt -y install make autoconf cmake
+  script:
+     - cd ./Gilded_Rose
+     - cmake .
+     - cmake --build .
+  #    - ls -al src
+  #    - ls -al src/gilded_rose  
+
+  artifacts:
+    paths:
+      - Gilded_Rose/src/gilded_rose/OOAD_Gilded_Rose
+      - Gilded_Rose/src/gilded_rose/OOAD_Gilded_Rose_Tests
+  only:
+    refs:
+      - branches
+    changes:
+      - ".gitlab-ci.yml"
+      - "Gilded_Rose/**/*"
+#
+# run tests using the binary built before
+test:
+  stage: test
+  script:
+    - set +e # Disable exit on error
+    - TZ='Europe/Berlin' date > report.txt
+    - cd Gilded_Rose
+    - ./src/gilded_rose/OOAD_Gilded_Rose_Tests >> ../report.txt 2>&1
+    - ./src/gilded_rose/OOAD_Gilded_Rose_Tests --gtest_output="xml:report.xml"
+  #  - ls -al
+    - mv report.xml ..
+  allow_failure: true
+  artifacts:
+    paths:
+      - report.txt
+    when: always
+    reports:
+      junit: report.xml
+  only:
+    refs:
+      - branches
+    changes:
+      - ".gitlab-ci.yml"
+      - "Gilded_Rose/**/*"
+
+pages:
+  stage: deploy
+  dependencies:
+    - test
+  script:
+    - mkdir public
+    - cp Gilded_Rose/src/index.html ./public/
+    - mv report.txt ./public/
+  artifacts:
+    paths:
+      - public
+    expire_in: 30 days
+  only:
+    refs:
+      - branches
+    changes:
+      - ".gitlab-ci.yml"
+      - "Gilded_Rose/**/*"
+

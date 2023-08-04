@@ -1,0 +1,74 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Project",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "OOAD_Gilded_Rose::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OOAD_Gilded_Rose-Debug-0f1540c80e2bfb714b20.json",
+					"name" : "OOAD_Gilded_Rose",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "OOAD_Gilded_Rose_Tests::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OOAD_Gilded_Rose_Tests-Debug-751a6d42d47c6dd70dfc.json",
+					"name" : "OOAD_Gilded_Rose_Tests",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "gilded_rose::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-gilded_rose-Debug-46123a897293f93fde07.json",
+					"name" : "gilded_rose",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/rreckerz/Documents/XUni/2.Semester/2.OAD/2023_04_17Praktikum1/OOAD-23SS-Mo4x-1-Bourbouh_Reckerzugl/Gilded_Rose/src/build-gilded_rose-Desktop_Qt_6_5_0_MinGW_64_bit-Debug",
+		"source" : "C:/Users/rreckerz/Documents/XUni/2.Semester/2.OAD/2023_04_17Praktikum1/OOAD-23SS-Mo4x-1-Bourbouh_Reckerzugl/Gilded_Rose/src/gilded_rose"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}
